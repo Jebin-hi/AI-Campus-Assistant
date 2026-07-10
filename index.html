@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Campus Assistant — Luxury Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-graduation-cap"></i> <span class="gold-text">DIU</span> Campus Assistant
+            </a>
+            <div class="system-status">
+                <span class="status-indicator"></span> Full Interactive MVP Console
+            </div>
+        </div>
+    </header>
+
+    <main class="app-container">
+        
+        <section class="hero-intro">
+            <div class="hero-image-bg"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-text-content">
+                <h1 class="main-title">Welcome to <span class="gold-gradient">AI Campus Assistant</span></h1>
+                <p class="hero-subtitle">Unified high-fidelity operational core running complete campus automation grids, real-time desk queues, and spatial text synthesizers.</p>
+            </div>
+        </section>
+
+        <section class="workspace-grid">
+            
+            <div class="module-card card-glow-purple" data-target="assistantModal">
+                <div class="card-top"><span class="card-icon">🤖</span><h3>AI Student Assistant</h3></div>
+                <p class="card-desc">Ask anything about university regulations, academics, office profiles, events, and campus life policies.</p>
+                <span class="action-btn">Launch Console <i class="fa-solid fa-chevron-right"></i></span>
+            </div>
+
+            <div class="module-card card-glow-blue" data-target="mapModal">
+                <div class="card-top"><span class="card-icon">🗺️</span><h3>Campus Map Navigator</h3></div>
+                <p class="card-desc">Experience precise outdoor and indoor department tracking grids with optimized spatial vectors.</p>
+                <span class="action-btn">Launch Console <i class="fa-solid fa-chevron-right"></i></span>
+            </div>
+
+            <div class="module-card card-glow-green" data-target="noticeModal">
+                <div class="card-top"><span class="card-icon">📄</span><h3>AI Notice Summarizer</h3></div>
+                <p class="card-desc">Convert long administrative notices into clear summaries with key actionable timelines.</p>
+                <span class="action-btn">Launch Console <i class="fa-solid fa-chevron-right"></i></span>
+            </div>
+
+            <div class="module-card card-glow-orange" data-target="queueModal">
+                <div class="card-top"><span class="card-icon">⏳</span><h3>Smart Queue System</h3></div>
+                <p class="card-desc">Real-time office desk queues status, waiting estimations, and digital token issuance.</p>
+                <span class="action-btn">Launch Console <i class="fa-solid fa-chevron-right"></i></span>
+            </div>
+
+            <div class="module-card card-glow-indigo" data-target="collabModal">
+                <div class="card-top"><span class="card-icon">👥</span><h3>Collaboration Hub</h3></div>
+                <p class="card-desc">Find matching team members for research papers, project hackathons, and competitions.</p>
+                <span class="action-btn">Launch Console <i class="fa-solid fa-chevron-right"></i></span>
+            </div>
+
+            <div class="module-card card-glow-cyan" data-target="learnModal">
+                <div class="card-top"><span class="card-icon">📚</span><h3>Learning Companion</h3></div>
+                <p class="card-desc">Generate continuous mock quizzes, clean chapter notes summaries, and flashcards instantly.</p>
+                <span class="action-btn">Launch Console <i class="fa-solid fa-chevron-right"></i></span>
+            </div>
+
+            <div class="module-card card-glow-rose" data-target="oppModal">
+                <div class="card-top"><span class="card-icon">🎯</span><h3>Opportunity Finder</h3></div>
+                <p class="card-desc">Discover tailored internships, dynamic corporate scholarships, and global workshops.</p>
+                <span class="action-btn">Launch Console <i class="fa-solid fa-chevron-right"></i></span>
+            </div>
+
+            <div class="module-card card-glow-teal" data-target="pulseModal">
+                <div class="card-top"><span class="card-icon">📊</span><h3>AI Campus Pulse</h3></div>
+                <p class="card-desc">Analyze real-time student satisfaction metrics and data logs across departments.</p>
+                <span class="action-btn">Launch Console <i class="fa-solid fa-chevron-right"></i></span>
+            </div>
+
+        </section>
+    </main>
+
+    <div id="assistantModal" class="modal-wrapper">
+        <div class="modal-panel animate-pop">
+            <div class="modal-header-bar">
+                <div class="m-title"><i class="fa-solid fa-robot"></i> AI Student Assistant Portal</div>
+                <button class="close-modal-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body bg-white-card">
+                <div class="chat-viewport-mock" id="liveChatViewport"></div>
+                <div class="chat-input-row-mock">
+                    <input type="text" placeholder="Type query or greeting here..." id="liveChatInputField">
+                    <button class="m-send-btn" id="liveChatSendButton"><i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="mapModal" class="modal-wrapper">
+        <div class="modal-panel animate-pop">
+            <div class="modal-header-bar">
+                <div class="m-title"><i class="fa-solid fa-map-location-dot"></i> Campus Map Navigator</div>
+                <button class="close-modal-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body p-0">
+                
+                <div class="map-input-state" id="mapInputPane">
+                    <h4><i class="fa-solid fa-compass fa-spin text-green"></i> Spatial Navigation Engine</h4>
+                    <p>What are you looking for?</p>
+                    <div class="map-search-box-row">
+                        <input type="text" placeholder="e.g., Registrar Office, Room 302, Library..." id="mapSearchInputField">
+                        <button id="btnSearchMap">Find Route</button>
+                    </div>
+                </div>
+
+                <div class="mock-hud-map hidden" id="mapActivePane">
+                    <div class="hud-grid-mesh"></div>
+                    <svg class="hud-svg" viewBox="0 0 400 200">
+                        <path d="M 60 150 Q 150 130, 200 80 T 340 50" fill="none" stroke="#10b981" stroke-width="3" stroke-dasharray="6,4" class="animated-dash-path"/>
+                        <circle cx="60" cy="150" r="6" fill="#ef4444"/>
+                        <circle cx="340" cy="50" r="6" fill="#10b981"/>
+                    </svg>
+                    <div class="hud-map-card">
+                        <h6 id="mapTargetTitle">Registrar Office</h6>
+                        <p style="font-size:0.75rem; color:#64748b;">DIU Campus Area Block</p>
+                        <p style="font-size:0.78rem; margin:6px 0; color:#10b981;"><strong>Best Route:</strong> 3 min (250m)</p>
+                        <button class="hud-nav-btn" id="btnResetMapNav"><i class="fa-solid fa-rotate-left"></i> Recalibrate</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="noticeModal" class="modal-wrapper">
+        <div class="modal-panel animate-pop">
+            <div class="modal-header-bar">
+                <div class="m-title"><i class="fa-solid fa-file-contract"></i> AI Notice Summarizer</div>
+                <button class="close-modal-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body bg-white-card">
+                <div class="split-notice-workspace">
+                    <div class="notice-doc-white">
+                        <h5>Paste Campus Circular Log</h5>
+                        <textarea id="noticeInputText" placeholder="Type or paste long official circular parameters here..." class="notice-textarea-hud">Academic Notice: Summer 2026 Mid-term Examination routine vectors published. All department lines must verify setups 3 days prior.</textarea>
+                        <button class="btn-summarize-hud" id="btnExecuteNoticeAI">Extract Core Milestones</button>
+                    </div>
+                    <div class="notice-ai-extract-box">
+                        <h6 style="color:#16a34a; font-weight:700;"><i class="fa-solid fa-wand-magic-sparkles"></i> AI Summary Insights</h6>
+                        <div id="noticeOutputBox">
+                            <p style="color:#94a3b8; font-style:italic; font-size:0.82rem; margin-top:20px; text-align:center;">Click button to map summaries.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="queueModal" class="modal-wrapper">
+        <div class="modal-panel animate-pop">
+            <div class="modal-header-bar">
+                <div class="m-title"><i class="fa-solid fa-clock"></i> Smart Queue Tracker</div>
+                <button class="close-modal-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body bg-white-card">
+                <div class="queue-card-hud">
+                    <span class="q-lbl">Current Live Token Queue</span>
+                    <h2 id="queueTokenText">A-23</h2>
+                    <p style="color:#64748b; font-size:0.8rem;">Registrar Accounts Desk Counter 02</p>
+                    <div class="queue-divider"></div>
+                    <div style="font-size:0.85rem; margin-bottom:16px;" id="queueTimeText">Estimated Waiting Latency: <strong>18 - 22 mins</strong></div>
+                    <button class="queue-token-btn" id="btnGenerateToken">Issue Next Digital Queue Token</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="collabModal" class="modal-wrapper">
+        <div class="modal-panel animate-pop">
+            <div class="modal-header-bar">
+                <div class="m-title"><i class="fa-solid fa-users"></i> AI Collaboration Hub</div>
+                <button class="close-modal-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body bg-white-card">
+                <div class="collab-input-row">
+                    <input type="text" placeholder="Type skills (e.g., Python, UI/UX)..." id="collabSearchInput" class="hud-inline-input">
+                    <button id="btnSearchCollab">Match Roster</button>
+                </div>
+                <div class="profile-card-mock-hud hidden" id="collabResultPane" style="margin-top:14px;">
+                    <div class="profile-meta-row">
+                        <div class="p-avatar-mock">TH</div>
+                        <div>
+                            <h5 id="collabMatchName">Tahmid Hasan</h5>
+                            <p style="font-size:0.75rem; color:#64748b;">CSE Dept • 5th Semester</p>
+                        </div>
+                    </div>
+                    <div class="p-tags-row"><span>Python</span><span>Machine Learning</span><span>Web Dev</span></div>
+                    <p style="font-size:0.82rem; margin:12px 0; color:#334155;">Matched explicitly based on your criteria query parameters track logs successfully.</p>
+                    <button class="connect-action-btn" id="btnConnectAlert">Send Connection Request</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="learnModal" class="modal-wrapper">
+        <div class="modal-panel animate-pop">
+            <div class="modal-header-bar">
+                <div class="m-title"><i class="fa-solid fa-book-open"></i> AI Learning Companion</div>
+                <button class="close-modal-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body bg-white-card">
+                <div class="quiz-mock-hud">
+                    <p class="quiz-q">1. What is the time-complexity of binary search algorithm?</p>
+                    <ul class="quiz-ans-stack">
+                        <li class="quiz-opt-btn" data-correct="false">A. O(1)</li>
+                        <li class="quiz-opt-btn" data-correct="true">B. O(log n)</li>
+                        <li class="quiz-opt-btn" data-correct="false">C. O(n log n)</li>
+                    </ul>
+                    <div class="quiz-feedback-box hidden" id="quizFeedbackBox"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="oppModal" class="modal-wrapper">
+        <div class="modal-panel animate-pop">
+            <div class="modal-header-bar">
+                <div class="m-title"><i class="fa-solid fa-images"></i> AI Opportunity Finder</div>
+                <button class="close-modal-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body bg-white-card">
+                <div class="opp-filter-chips" style="display:flex; gap:8px; margin-bottom:14px;">
+                    <button class="chip-act active" data-filter="all">All</button>
+                    <button class="chip-act" data-filter="intern">Internships</button>
+                    <button class="chip-act" data-filter="comp">Competitions</button>
+                </div>
+                <div class="opp-stack-hud">
+                    <div class="opp-item-card-hud" data-cat="intern">
+                        <div class="opp-icon-hud bg-sky"><i class="fa-solid fa-briefcase"></i></div>
+                        <div><h6>AI Intern - Summer 2026</h6><p style="font-size:0.75rem; color:#64748b;">TechNova Labs • Deadline: 25 Jun 2026</p></div>
+                    </div>
+                    <div class="opp-item-card-hud" data-cat="comp">
+                        <div class="opp-icon-hud bg-green"><i class="fa-solid fa-trophy"></i></div>
+                        <div><h6>National AI Challenge 2026</h6><p style="font-size:0.75rem; color:#64748b;">DIU & BASIS • Deadline: 10 Jul 2026</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pulseModal" class="modal-wrapper">
+        <div class="modal-panel animate-pop">
+            <div class="modal-header-bar">
+                <div class="m-title"><i class="fa-solid fa-chart-line"></i> AI Campus Pulse Analytics</div>
+                <button class="close-modal-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body bg-white-card">
+                <button class="hud-nav-btn" style="background:#14b8a6; margin-bottom:14px;" id="btnCompilePulse">Compile Active Student Feedback Logs</button>
+                <div class="pulse-stack-hud hidden" id="pulseDataArea">
+                    <div class="pulse-bar-item">
+                        <div class="p-labels"><span>Wi-Fi Connectivity Index</span> <strong>42%</strong></div>
+                        <div class="p-track"><div class="p-fill" style="width:42%; background:#3b82f6;"></div></div>
+                    </div>
+                    <div class="pulse-bar-item" style="margin-top:12px;">
+                        <div class="p-labels"><span>Classroom Multimedia Congestion</span> <strong>27%</strong></div>
+                        <div class="p-track"><div class="p-fill" style="width:27%; background:#14b8a6;"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="why-ai" class="info-section">
+        <div class="info-container">
+            <span class="section-tag">Centralized Data Core Framework</span>
+            <h2>Why AI Campus Assistant?</h2>
+            <p class="section-lead-paragraph">Traditional campus models execute operations on localized data sheets leading to administrative fragmentation. Our framework aggregates data arrays to deliver micro-services flawlessly.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 DIU AI Campus Assistant. Engineered for Ultimate Evaluator Visual Presentation.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
